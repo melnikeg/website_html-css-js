@@ -278,23 +278,35 @@ h5 {
     @include list-none();
 
     display: flex;
-    justify-content: center;
+    justify-content: center;   
+}
 
-    &__item {
+.swiper-pagination-bullet {        
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 24px !important;
+    height: 24px !important;
+    background-color: transparent !important;
+    cursor: pointer;
+    
+    &::before {
+        display: block;
         width: 8px;
         height: 8px;
-        cursor: pointer;
-        border-radius: 100%;
-        background-color: #d1d6e3;
+        content: '';
+        background-color: #8d96bd;// #d1d6e3
         transition: $transition;
+        border-radius: 100%;
 
-        &--active {
-            background-color: #5283ff;
-        }
+    }
 
-        &+& {
-            margin-left: 12px;
-        }
+    &-active::before {
+        background-color: #5283ff !important;
+    }
+
+    & + & {
+        margin-left: 4px !important;
     }
 }
 
@@ -516,14 +528,14 @@ h5 {
 
 // === HERO-IMAGE ===
 .section-hero-image {
-    position: relative;
-    background-color: #f4f7ff;
+    position: relative;   
     padding: 0;
-
+    overflow: hidden;    
+    
     .dots {
         position: absolute;
-        bottom: 28px;
-        left: 50%;
+        bottom: 28px !important;
+        left: 50% !important;
         transform: translateX(-50%);
     }
 }
@@ -531,8 +543,10 @@ h5 {
 .slider-hero-image {
     @include list-none();
 
-    &__item {
-        height: 600px;
+    display: flex;
+   
+    &__item {        
+        height: 600px !important;        
         text-align: center;
         background-position: 50% 70%;
         background-repeat: no-repeat;

@@ -1,12 +1,13 @@
+const header = document.querySelector('.section-header');
+const mainNavigation = document.getElementById('main-navigation');
+
 document.querySelector('.faq-accordion').addEventListener('click', (event) => {
     if (event.target.closest('.faq-accordion__item')) {
         event.target.closest('.faq-accordion__item').classList.toggle('faq-accordion__item_active');
     }        
 });
 
-document.querySelector('.btn-burger').addEventListener('click', () => {    
-    const header = document.querySelector('.section-header');
-
+document.querySelector('.btn-burger').addEventListener('click', () => {  
     header.classList.toggle('section-header--active-nav');   
     
     if (header.classList.contains('section-header--active-nav')) {
@@ -17,14 +18,27 @@ document.querySelector('.btn-burger').addEventListener('click', () => {
 });
 
 const hideScroll = () => {
-    document.body.style.paddingRight = `${getScrollbarWidth()}px`;
+    const scrollWidth = `${getScrollbarWidth()}px`;
+    
+    document.body.style.paddingRight = scrollWidth;
     document.body.style.overflow = 'hidden';
-};
+
+    mainNavigation.style.paddingRight = scrollWidth;
+}
 
 const showScroll = () => {   
-        document.body.style.paddingRight = '';
-        document.body.style.overflow = 'visible'; 
-};
+    document.body.style.paddingRight = '';
+    document.body.style.overflow = 'visible';
+    
+    mainNavigation.style.paddingRight = '';
+}
+
+const resetNav = () => {    
+    header.classList.remove('section-header--active-nav');
+    showScroll();    
+}
+
+window.addEventListener('resize', resetNav);
 
 // Get scrollbar width 
 const getScrollbarWidth = () => {
@@ -43,3 +57,26 @@ const getScrollbarWidth = () => {
 
     return scrollBarWidth;
 }
+
+const swiper = new Swiper('.section-hero-image', {
+    // // Optional parameters
+    // direction: 'vertical',
+    // loop: true,
+  
+    // // If we need pagination
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+  
+    // // Navigation arrows
+    // navigation: {
+    //   nextEl: '.swiper-button-next',
+    //   prevEl: '.swiper-button-prev',
+    // },
+  
+    // // And if we need scrollbar
+    // scrollbar: {
+    //   el: '.swiper-scrollbar',
+    // },
+  });

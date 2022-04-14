@@ -15,7 +15,7 @@
     <!-- header -->
     <header class="section-outer section-header">
         <div class="section-inner section-inner__wide vertical-indent vertical-indent--s">
-            <div class="main-navigation">
+            <div class="main-navigation" id="main-navigation">
                 <a class="logo" href="#" aria-label="Logo"></a>
                 <button class="btn btn--no-bg btn-burger" aria-label="Burger">
                     <span class="btn-burger__line"></span>
@@ -99,9 +99,9 @@
     <main>
 
         <!-- hero-image -->
-        <section class="section-outer section-hero-image">
-            <ul class="slider-hero-image">
-                <li class="slider-hero-image__item" style="background-image: url(upload/hero-image-1.png);">
+        <section class="section-outer section-hero-image swiper">
+            <ul class="slider-hero-image swiper-wrapper">
+                <li class="slider-hero-image__item swiper-slide" style="background-image: url(upload/hero-image-1.png);">
                     <div class="section-inner slider-hero-image__item-content vertical-indent vertical-indent--l">
                         <h5>PLAN YOUR LIFE</h5>
                         <h2>Increase your <span>productivity</span></h2>
@@ -117,12 +117,26 @@
                         </div>
                     </div>
                 </li>
+
+                <li class="slider-hero-image__item swiper-slide" style="background-image: url(upload/hero-image-1.png);">
+                    <div class="section-inner slider-hero-image__item-content vertical-indent vertical-indent--l">
+                        <h5>PLAN YOUR LIFE</h5>
+                        <h2>Increase your <span>productivity</span></h2>
+                        <div class="text">
+                            Brute laoreet efficiendi id his, ea illum nonumes luptatum pro. Usu atqui laudem an,
+                            insolens
+                            gubergren similique est cu. Et vel modus congue vituperata.
+                        </div>
+                        <div class="btn-icon-play-wrapper">
+                            <a href="#" aria-label="Logo play">
+                                <i class="icon-play"></i>
+                            </a>
+                        </div>
+                    </div>
+                </li>
+
             </ul>
-            <ul class="dots">
-                <li class="dots__item dots__item--active"></li>
-                <li class="dots__item"></li>
-                <li class="dots__item"></li>
-            </ul>
+            <div class="dots swiper-pagination"></div>
         </section>
         <!-- / hero-image -->
 
@@ -499,6 +513,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
 
     <script src="./js/scripts.js"></script>
 
