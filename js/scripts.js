@@ -4,8 +4,16 @@ document.querySelector('.faq-accordion').addEventListener('click', (event) => {
     }        
 });
 
-document.querySelector('.btn-burger').addEventListener('click', (event) => {    
-    document.querySelector('.section-header').classList.toggle('section-header--active-nav');            
+document.querySelector('.btn-burger').addEventListener('click', () => {    
+    const header = document.querySelector('.section-header');
+
+    header.classList.toggle('section-header--active-nav');   
+    
+    if (header.classList.contains('section-header--active-nav')) {
+        hideScroll();
+    } else {
+        showScroll();
+    }
 });
 
 const hideScroll = () => {
@@ -13,7 +21,7 @@ const hideScroll = () => {
     document.body.style.overflow = 'hidden';
 };
 
-const showScroll = (event) => {   
+const showScroll = () => {   
         document.body.style.paddingRight = '';
         document.body.style.overflow = 'visible'; 
 };
@@ -30,7 +38,7 @@ const getScrollbarWidth = () => {
     outer.style.visibility = 'hidden';
 
     document.body.appendChild(outer);
-    const getScrollbarWidth = outer.offsetWidth - outer.clientWidth;
+    const scrollBarWidth = outer.offsetWidth - outer.clientWidth;
     document.body.removeChild(outer);
 
     return scrollBarWidth;
