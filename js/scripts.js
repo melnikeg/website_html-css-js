@@ -58,14 +58,14 @@ const getScrollbarWidth = () => {
     return scrollBarWidth;
 }
 
-const swiper = new Swiper('.section-hero-image', {
+new Swiper('.section-hero-image', {
     // // Optional parameters
     // direction: 'vertical',
     // loop: true,
   
     // // If we need pagination
     pagination: {
-      el: '.swiper-pagination',
+      el: '.section-hero-image .dots',
       clickable: true,
     },
   
@@ -77,6 +77,30 @@ const swiper = new Swiper('.section-hero-image', {
   
     // // And if we need scrollbar
     // scrollbar: {
-    //   el: '.swiper-scrollbar',
+    //   el: '.swiper-scrollbar', slider-blog-container
+    // },
+  });
+
+
+  new Swiper('.slider-blog-container', {
+    // // Optional parameters
+    // direction: 'vertical',
+     loop: true,
+  
+    // // If we need pagination
+    pagination: {
+      el: '.section-blog .dots',
+      clickable: true,
+    },
+  
+    // Navigation arrows
+    navigation: {
+      nextEl: '.section-blog .swiper-button-next',
+      prevEl: '.section-blog .swiper-button-prev',
+    },
+  
+    // // And if we need scrollbar
+    // scrollbar: {
+    //   el: '.swiper-scrollbar', 
     // },
   });
