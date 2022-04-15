@@ -1124,6 +1124,13 @@ h5 {
 // === QUOTES ===
 .section-quotes {
     background: linear-gradient(#eaf0ff, #f6f9ff);
+    overflow: hidden;
+
+    .swiper-pagination {
+        position: relative;
+        margin-top: 40px;
+        margin-left: -10px;           
+    }
 
     .section-inner {
         display: flex;
@@ -1137,14 +1144,18 @@ h5 {
             margin-bottom: 30px;
         }
 
-        @media (max-width: $breakpoint-sm-max) {
+        @media (max-width: $breakpoint-xl-min) {
             flex-direction: column;
         }
     }
 
     &__left,
     &__right {
-        flex-basis: 45%;
+        width: 45%;
+
+        @media (max-width: $breakpoint-xl-min) {
+            width: 100%;
+        }
     }
 
     &__left {
@@ -1155,38 +1166,77 @@ h5 {
         @media (max-width: $breakpoint-sm-max) {
             margin-bottom: 30px;
         }
+
+        @media (max-width: $breakpoint-xl-min) {
+            margin-bottom: 30px;        
+        }
+    }
+}
+
+.slider-quotes-container {
+    width: 50vw;    
+    margin: -50px 0 40px -50px !important;
+    overflow: hidden;
+
+    @media (max-width: $breakpoint-xl-min) {
+        width: 100vw;
+        margin-top: 0;        
     }
 }
 
 .slider-quotes {
     @include list-none();
-    margin-bottom: 80px;
 
-    &__item {
-        position: relative;
-        padding: 40px 72px 60px;
-        border: 1px solid #d8e3fe;
+    display: flex;       
+
+    &__item {           
+        min-width: 28vw;
+        padding: 48px;
+        opacity: 0.5;
+        box-sizing: border-box;    
+        transition: opacity $transition;
+
+        &.swiper-slide-active {
+            opacity: 1;
+        }
+        
+        @media (max-width: $breakpoint-xl-min) {
+            min-width: 50vw;                  
+        }
+
+        @media (max-width: $breakpoint-xs-max) {
+            min-width: 100vw;                  
+        }
+    }
+    .swiper-slide {
+        flex-shrink: 1 !important;
+    }
+}
+
+.slider-quotes-item-content {
+    position: relative;
+    padding: 40px 72px 60px;
+    border: 1px solid #d8e3fe;
+    background-color: #fff;
+    box-shadow: 0 5px 50px #c7cbd6;
+
+    &__text {
+        font-size: $fs-md;
+        line-height: 2;
+        color: #676f95;
+    }
+
+    &__photo {
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        width: 60px;
+        height: 60px;
+        //translateY(-50%) можно удалить и заменить на margin-top: 30px;
+        border-radius: 100%;
+        overflow: hidden;
         background-color: #fff;
-        box-shadow: 0 5px 50px #f3f5fa;
-
-        &-text {
-            font-size: $fs-md;
-            line-height: 2;
-            color: #676f95;
-        }
-
-        &-photo {
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            width: 60px;
-            height: 60px;
-            //translateY(-50%) можно удалить и заменить на margin-top: 30px;
-            border-radius: 100%;
-            overflow: hidden;
-            background-color: #fff;
-            transform: translateX(-50%) translateY(-50%);
-        }
+        transform: translateX(-50%) translateY(-50%);
     }
 }
 

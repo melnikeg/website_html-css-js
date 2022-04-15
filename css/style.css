@@ -1209,6 +1209,12 @@ h5 {
 .section-quotes {
   background: -webkit-gradient(linear, left top, left bottom, from(#eaf0ff), to(#f6f9ff));
   background: linear-gradient(#eaf0ff, #f6f9ff);
+  overflow: hidden;
+}
+.section-quotes .swiper-pagination {
+  position: relative;
+  margin-top: 40px;
+  margin-left: -10px;
 }
 .section-quotes .section-inner {
   display: -webkit-box;
@@ -1224,7 +1230,7 @@ h5 {
 .section-quotes .section-inner h5 {
   margin-bottom: 30px;
 }
-@media (max-width: 767px) {
+@media (max-width: 1200px) {
   .section-quotes .section-inner {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -1233,8 +1239,12 @@ h5 {
   }
 }
 .section-quotes__left, .section-quotes__right {
-  -ms-flex-preferred-size: 45%;
-      flex-basis: 45%;
+  width: 45%;
+}
+@media (max-width: 1200px) {
+  .section-quotes__left, .section-quotes__right {
+    width: 100%;
+  }
 }
 .section-quotes__left .text {
   line-height: 2;
@@ -1244,27 +1254,73 @@ h5 {
     margin-bottom: 30px;
   }
 }
+@media (max-width: 1200px) {
+  .section-quotes__left {
+    margin-bottom: 30px;
+  }
+}
+
+.slider-quotes-container {
+  width: 50vw;
+  margin: -50px 0 40px -50px !important;
+  overflow: hidden;
+}
+@media (max-width: 1200px) {
+  .slider-quotes-container {
+    width: 100vw;
+    margin-top: 0;
+  }
+}
 
 .slider-quotes {
   list-style: none;
   margin: 0;
   padding: 0;
-  margin-bottom: 80px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 .slider-quotes__item {
+  min-width: 28vw;
+  padding: 48px;
+  opacity: 0.5;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-transition: opacity 0.2s;
+  transition: opacity 0.2s;
+}
+.slider-quotes__item.swiper-slide-active {
+  opacity: 1;
+}
+@media (max-width: 1200px) {
+  .slider-quotes__item {
+    min-width: 50vw;
+  }
+}
+@media (max-width: 575px) {
+  .slider-quotes__item {
+    min-width: 100vw;
+  }
+}
+.slider-quotes .swiper-slide {
+  -ms-flex-negative: 1 !important;
+      flex-shrink: 1 !important;
+}
+
+.slider-quotes-item-content {
   position: relative;
   padding: 40px 72px 60px;
   border: 1px solid #d8e3fe;
   background-color: #fff;
-  -webkit-box-shadow: 0 5px 50px #f3f5fa;
-          box-shadow: 0 5px 50px #f3f5fa;
+  -webkit-box-shadow: 0 5px 50px #c7cbd6;
+          box-shadow: 0 5px 50px #c7cbd6;
 }
-.slider-quotes__item-text {
+.slider-quotes-item-content__text {
   font-size: 15px;
   line-height: 2;
   color: #676f95;
 }
-.slider-quotes__item-photo {
+.slider-quotes-item-content__photo {
   position: absolute;
   top: 100%;
   left: 50%;

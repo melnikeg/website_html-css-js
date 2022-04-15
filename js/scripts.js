@@ -58,49 +58,35 @@ const getScrollbarWidth = () => {
     return scrollBarWidth;
 }
 
-new Swiper('.section-hero-image', {
-    // // Optional parameters
-    // direction: 'vertical',
-    // loop: true,
-  
-    // // If we need pagination
+new Swiper('.section-hero-image', {   
     pagination: {
       el: '.section-hero-image .dots',
       clickable: true,
-    },
-  
-    // // Navigation arrows
-    // navigation: {
-    //   nextEl: '.swiper-button-next',
-    //   prevEl: '.swiper-button-prev',
-    // },
-  
-    // // And if we need scrollbar
-    // scrollbar: {
-    //   el: '.swiper-scrollbar', slider-blog-container
-    // },
+    },    
   });
 
 
-  new Swiper('.slider-blog-container', {
-    // // Optional parameters
-    // direction: 'vertical',
-     loop: true,
-  
-    // // If we need pagination
+  new Swiper('.slider-blog-container', {   
+     loop: true,  
+    
     pagination: {
       el: '.section-blog .dots',
       clickable: true,
-    },
-  
-    // Navigation arrows
+    },  
+   
     navigation: {
       nextEl: '.section-blog .swiper-button-next',
       prevEl: '.section-blog .swiper-button-prev',
-    },
+    },    
+  });
+
+  new Swiper('.slider-quotes-container', {       
+    loop: true,
+    slidesPerView: 'auto',
+    //spaceBetween: 30,
   
-    // // And if we need scrollbar
-    // scrollbar: {
-    //   el: '.swiper-scrollbar', 
-    // },
+    pagination: {
+      el: '.section-quotes .dots',
+      clickable: true,
+    },   
   });
